@@ -36,15 +36,17 @@ public class ShellSortDell {
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
                 j = i;
-                temp = arr[j];
+                temp = arr[j]; //将最初的arr[j]记录为temp
                 if (arr[j] < arr[j - gap]) {
                     while (j - gap >= 0 && temp < arr[j - gap]) {
-                        //移动
+                        // 在组内挨个移动，判断是否比temp大，
+                        // 若比temp大，将arr[j] 替换为 arr[j-gap]
+                        // 直至将该组所有数都比temp大
                         arr[j] = arr[j - gap];
                         j -= gap;
                         System.out.println("before:" + Arrays.toString(arr));
                     }
-                    //当退出while后，就给temp找到插入的位置
+                    //当退出while后，j就为temp插入的位置
                     arr[j] = temp;
                     System.out.println("after: " + Arrays.toString(arr));
                 }
